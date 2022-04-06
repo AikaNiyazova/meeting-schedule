@@ -1,5 +1,6 @@
 package kg.megalab.meetingschedule.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -24,9 +25,11 @@ public class RoomAvailability extends AbstractPersistable<Long> {
     @JoinColumn(name = "weekday_id", referencedColumnName = "id", nullable = false)
     Weekday weekday;
 
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "available_from", nullable = false)
     LocalTime availableFrom;
 
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "available_to", nullable = false)
     LocalTime availableTo;
 

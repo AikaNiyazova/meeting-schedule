@@ -15,12 +15,12 @@ import javax.persistence.*;
 @Table(name = "tb_organization")
 public class Organization extends AbstractPersistable<Long> {
 
-    @Column(name = "organization_name", nullable = false, unique = true) //TODO: unique ???
+    @Column(name = "organization_name", nullable = false, unique = true)
     String organizationName;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //TODO: cascade ???
-    @JoinColumn(name = "parent_organization_id") //TODO: referencedColumnName = "id" ???
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_organization_id")
     @ToString.Exclude
-    Organization parentOrganizationId;
+    Organization parentOrganization;
 
 }

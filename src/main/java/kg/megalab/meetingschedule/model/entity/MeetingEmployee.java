@@ -6,7 +6,6 @@ import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -26,14 +25,11 @@ public class MeetingEmployee extends AbstractPersistable<Long> {
     @JoinColumn(name = "employee_id", referencedColumnName = "id", nullable = false)
     Employee employee;
 
-//    @ElementCollection(fetch = FetchType.EAGER) // без энтити создает нам таблицы
-//    @CollectionTable(name = "meeting_statuses", joinColumns = @JoinColumn(name = "meeting_employee_id")) // TODO: ???
-//    @Column(name = "meeting_statuses_id", nullable = false)
+    @Column(name = "member_type", nullable = false)
+    MemberType memberType;
+
+    @Column(name = "meeting_status", nullable = false)
     MeetingStatus meetingStatus;
 
-//    @ElementCollection(fetch = FetchType.EAGER) // без энтити создает нам таблицы
-//    @CollectionTable(name = "member_types", joinColumns = @JoinColumn(name = "meeting_employee_id")) // TODO: ???
-//    @Column(name = "member_types_id", nullable = false)
-    MemberType memberType;
 
 }

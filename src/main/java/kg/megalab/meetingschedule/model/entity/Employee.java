@@ -5,7 +5,6 @@ import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -29,17 +28,11 @@ public class Employee extends AbstractPersistable<Long> {
     @Column(name = "msisdn", nullable = false, unique = true)
     String msisdn;
 
-    @Column(name = "password", nullable = false)
-    String password;
-
-//    @ElementCollection(fetch = FetchType.EAGER) // без энтити создает нам таблицы
-//    @CollectionTable(name = "employee_has_statuses", joinColumns = @JoinColumn(name = "employee_id")) //TODO: ???
-//    @Column(name = "employee_statuses_id", nullable = false)
+    @Column(name = "employee_status", nullable = false)
     EmployeeStatus employeeStatus;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id", referencedColumnName = "id",
-            nullable = false, unique = true, insertable = false, updatable = false) //TODO: do i need these?
+    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false, unique = true)
     Account account;
 
 }

@@ -14,6 +14,6 @@ public class AccountDto {
     String login;
     String password;
     Integer loginCount;
-    EmployeeDto employeeDto;
+    EmployeeDto employee;
 
 }

@@ -12,6 +12,6 @@ public class OrganizationDto {
 
     Long id;
     String organizationName;
-    OrganizationDto parentOrganizationId;
+    OrganizationDto parentOrganization;
 
 }

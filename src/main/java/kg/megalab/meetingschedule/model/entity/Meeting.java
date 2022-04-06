@@ -1,7 +1,9 @@
 package kg.megalab.meetingschedule.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -25,18 +27,26 @@ public class Meeting extends AbstractPersistable<Long> {
     @Column(name = "description")
     String description;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy") //TODO: Shape.STRING? Locale, TimeZone???
     @Column(name = "meeting_date", nullable = false)
     LocalDate meetingDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_start_time", nullable = false)
     LocalTime meetingStartTime;
 
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_end_time", nullable = false)
     LocalTime meetingEndTime;
 
-    @CreationTimestamp
-    @Column(name = "creation_date", nullable = false, updatable = false) //TODO: insertable ???
+    @CreationTimestamp // TODO: Should I use @JsonFormat here?
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyy HH:mm:ss") //TODO: Shape.STRING? Locale, TimeZone???
+    @Column(name = "creation_date", nullable = false, updatable = false)
     LocalDateTime creationDate;
+
+//    @UpdateTimestamp
+//    @Column(name = "modification_date", nullable = false, insertable = false)
+//    LocalDateTime modificationDate;
 
     @ManyToOne
     @JoinColumn(name = "room_id", referencedColumnName = "id", nullable = false)

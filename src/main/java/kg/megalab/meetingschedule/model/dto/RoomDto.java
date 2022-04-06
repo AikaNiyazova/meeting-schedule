@@ -13,6 +13,6 @@ public class RoomDto {
     Long id;
     String roomNumber;
     Integer roomCapacity;
-    RoomDto roomId;
+    RoomDto parentBuilding;
 
 }

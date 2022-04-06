@@ -15,7 +15,7 @@ public class MeetingEmployeeDto {
     Long id;
     MeetingDto meeting;
     EmployeeDto employee;
-    String meetingStatus;
     String memberType;
+    String meetingStatus;
 
 }

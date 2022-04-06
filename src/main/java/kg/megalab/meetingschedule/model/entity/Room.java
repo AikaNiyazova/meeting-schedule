@@ -21,9 +21,9 @@ public class Room extends AbstractPersistable<Long> {
     @Column(name = "room_capacity")
     Integer roomCapacity;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //TODO: cascade ???
-    @JoinColumn(name = "room_id") //TODO: referencedColumnName = "id" ???
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_building_id")
     @ToString.Exclude
-    Room roomId; //TODO: unclear (= building)
+    Room parentBuilding;
 
 }

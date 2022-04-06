@@ -17,7 +17,6 @@ public class EmployeeDto {
     String firstName;
     String email;
     String msisdn;
-    String password;
     String employeeStatus;
     AccountDto account;
 

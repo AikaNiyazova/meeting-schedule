@@ -27,7 +27,7 @@ public class Account extends AbstractPersistable<Long> {
     @Column(name = "login_count", nullable = false)
     Integer loginCount;
 
-    @OneToOne(mappedBy = "account") //TODO: ???
+    @OneToOne(mappedBy = "account")
     Employee employee;
 
 }

@@ -6,8 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface OrgEmployeeScheduleMapper extends BaseMapper<EmployeeSchedule, EmployeeScheduleDto> {
+public interface EmployeeScheduleMapper extends BaseMapper<EmployeeSchedule, EmployeeScheduleDto> {
 
-    OrgEmployeeScheduleMapper INSTANCE = Mappers.getMapper(OrgEmployeeScheduleMapper.class);
+    EmployeeScheduleMapper INSTANCE = Mappers.getMapper(EmployeeScheduleMapper.class);
 
 }

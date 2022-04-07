@@ -12,6 +12,6 @@ public interface OrganizationEmployeeService {
 
     OrganizationEmployeeDto update(OrganizationEmployeeDto organizationEmployeeDto);
 
-    void save(OrganizationEmployeeDto organizationEmployeeDto);
+    OrganizationEmployeeDto save(OrganizationEmployeeDto organizationEmployeeDto);
 
 }

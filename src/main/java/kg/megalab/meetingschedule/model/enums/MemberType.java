@@ -2,17 +2,17 @@ package kg.megalab.meetingschedule.model.enums;
 
 public enum MemberType {
 
-    ORGANIZER("O"),
-    INVITED_PARTICIPANT("IP"),
-    DELEGATE("D");
+    ORGANIZER("ORGANIZER"),
+    INVITED_PARTICIPANT("INVITED_PARTICIPANT"),
+    DELEGATE("DELEGATE");
 
-    private final String code;
+    private final String value;
 
-    MemberType(String code) {
-        this.code = code;
+    MemberType(String value) {
+        this.value = value;
     }
 
-    public String getCode() {
-        return code;
+    public String getValue() {
+        return value;
     }
 }

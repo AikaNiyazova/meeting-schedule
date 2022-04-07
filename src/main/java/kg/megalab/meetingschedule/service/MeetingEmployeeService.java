@@ -12,6 +12,6 @@ public interface MeetingEmployeeService {
 
     MeetingEmployeeDto update(MeetingEmployeeDto meetingEmployeeDto);
 
-    void save(MeetingEmployeeDto meetingEmployeeDto);
+    MeetingEmployeeDto save(MeetingEmployeeDto meetingEmployeeDto);
 
 }

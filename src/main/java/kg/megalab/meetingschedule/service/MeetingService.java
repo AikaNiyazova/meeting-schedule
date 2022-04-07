@@ -12,6 +12,6 @@ public interface MeetingService {
 
     MeetingDto update(MeetingDto meetingDto);
 
-    void save(MeetingDto meetingDto);
+    MeetingDto save(MeetingDto meetingDto);
 
 }

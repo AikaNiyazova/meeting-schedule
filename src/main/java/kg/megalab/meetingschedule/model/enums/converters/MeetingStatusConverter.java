@@ -14,16 +14,16 @@ public class MeetingStatusConverter implements AttributeConverter<MeetingStatus,
         if (meetingStatus == null) {
             return null;
         }
-        return meetingStatus.getCode();
+        return meetingStatus.getValue();
     }
 
     @Override
-    public MeetingStatus convertToEntityAttribute(String code) {
-        if (code == null) {
+    public MeetingStatus convertToEntityAttribute(String value) {
+        if (value == null) {
             return null;
         }
         return Stream.of(MeetingStatus.values())
-                .filter(meetingStatus -> meetingStatus.getCode().equals(code))
+                .filter(meetingStatus -> meetingStatus.getValue().equals(value))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }

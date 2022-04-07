@@ -14,16 +14,16 @@ public class EmployeeStatusConverter implements AttributeConverter<EmployeeStatu
         if (employeeStatus == null) {
             return null;
         }
-        return employeeStatus.getCode();
+        return employeeStatus.getValue();
     }
 
     @Override
-    public EmployeeStatus convertToEntityAttribute(String code) {
-        if (code == null) {
+    public EmployeeStatus convertToEntityAttribute(String value) {
+        if (value == null) {
             return null;
         }
         return Stream.of(EmployeeStatus.values())
-                .filter(employeeStatus -> employeeStatus.getCode().equals(code))
+                .filter(employeeStatus -> employeeStatus.getValue().equals(value))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }

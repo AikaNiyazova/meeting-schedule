@@ -12,6 +12,6 @@ public interface WeekdayService {
 
     WeekdayDto update(WeekdayDto weekdayDto);
 
-    void save(WeekdayDto weekdayDto);
+    WeekdayDto save(WeekdayDto weekdayDto);
 
 }

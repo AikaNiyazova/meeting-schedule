@@ -12,6 +12,6 @@ public interface RoomService {
 
     RoomDto update(RoomDto roomDto);
 
-    void save(RoomDto roomDto);
+    RoomDto save(RoomDto roomDto);
 
 }

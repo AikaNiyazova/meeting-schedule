@@ -1,6 +1,12 @@
 package kg.megalab.meetingschedule.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -31,14 +37,20 @@ public class Meeting extends AbstractPersistable<Long> {
     @Column(name = "meeting_date", nullable = false)
     LocalDate meetingDate;
 
+    @JsonDeserialize(using = LocalTimeDeserializer.class)
+    @JsonSerialize(using = LocalTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_start_time", nullable = false)
     LocalTime meetingStartTime;
 
+    @JsonDeserialize(using = LocalTimeDeserializer.class)
+    @JsonSerialize(using = LocalTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_end_time", nullable = false)
     LocalTime meetingEndTime;
 
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
     @CreationTimestamp // TODO: Should I use @JsonFormat here?
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyy HH:mm:ss") //TODO: Shape.STRING? Locale, TimeZone???
     @Column(name = "creation_date", nullable = false, updatable = false)

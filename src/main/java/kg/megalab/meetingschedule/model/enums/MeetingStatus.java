@@ -2,18 +2,18 @@ package kg.megalab.meetingschedule.model.enums;
 
 public enum MeetingStatus {
 
-    IN_PROGRESS("PRO"),
-    COMPLETED("COM"),
-    CANCELED("CAN"),
-    RESCHEDULED("RES");
+    IN_PROGRESS("IN_PROGRESS"),
+    COMPLETED("COMPLETED"),
+    CANCELED("CANCELED"),
+    RESCHEDULED("RESCHEDULED");
 
-    private final String code;
+    private final String value;
 
-    MeetingStatus(String code) {
-        this.code = code;
+    MeetingStatus(String value) {
+        this.value = value;
     }
 
-    public String getCode() {
-        return code;
+    public String getValue() {
+        return value;
     }
 }

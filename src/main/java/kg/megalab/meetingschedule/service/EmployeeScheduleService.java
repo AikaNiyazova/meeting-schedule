@@ -12,6 +12,6 @@ public interface EmployeeScheduleService {
 
     EmployeeScheduleDto update(EmployeeScheduleDto employeeScheduleDto);
 
-    void save(EmployeeScheduleDto employeeScheduleDto);
+    EmployeeScheduleDto save(EmployeeScheduleDto employeeScheduleDto);
 
 }

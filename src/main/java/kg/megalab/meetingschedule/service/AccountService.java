@@ -12,6 +12,6 @@ public interface AccountService {
 
     AccountDto update(AccountDto accountDto);
 
-    void save(AccountDto accountDto);
+    AccountDto save(AccountDto accountDto);
 
 }

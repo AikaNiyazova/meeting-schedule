@@ -12,6 +12,6 @@ public interface RoomAvailabilityService {
 
     RoomAvailabilityDto update(RoomAvailabilityDto roomAvailabilityDto);
 
-    void save(RoomAvailabilityDto roomAvailabilityDto);
+    RoomAvailabilityDto save(RoomAvailabilityDto roomAvailabilityDto);
 
 }

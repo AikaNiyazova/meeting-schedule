@@ -14,16 +14,16 @@ public class MemberTypeConverter implements AttributeConverter<MemberType, Strin
         if (memberType == null) {
             return null;
         }
-        return memberType.getCode();
+        return memberType.getValue();
     }
 
     @Override
-    public MemberType convertToEntityAttribute(String code) {
-        if (code == null) {
+    public MemberType convertToEntityAttribute(String value) {
+        if (value == null) {
             return null;
         }
         return Stream.of(MemberType.values())
-                .filter(memberType -> memberType.getCode().equals(code))
+                .filter(memberType -> memberType.getValue().equals(value))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
     }

@@ -12,6 +12,6 @@ public interface AdminService {
 
     AdminDto update(AdminDto adminDto);
 
-    void save(AdminDto adminDto);
+    AdminDto save(AdminDto adminDto);
 
 }

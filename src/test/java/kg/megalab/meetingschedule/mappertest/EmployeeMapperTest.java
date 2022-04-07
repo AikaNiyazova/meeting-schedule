@@ -29,7 +29,7 @@ public class EmployeeMapperTest {
         employeeDto.setFirstName("John");
         employeeDto.setEmail("john@gmail.com");
         employeeDto.setMsisdn("0999999999");
-        employeeDto.setEmployeeStatus("A");
+        employeeDto.setEmployeeStatus("ACTIVE");
         employeeDto.setAccount(accountDto);
 
         Employee employee = EmployeeMapper.INSTANCE.toEntity(employeeDto);

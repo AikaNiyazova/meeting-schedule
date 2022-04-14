@@ -1,14 +1,12 @@
 package kg.megalab.meetingschedule.controller;
 
+import kg.megalab.meetingschedule.model.dto.AccountDto;
 import kg.megalab.meetingschedule.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -28,7 +26,19 @@ public class AccountController {
             log.info("Finding account with id=" + id);
             return ResponseEntity.ok(accountService.findById(id));
         } catch (RuntimeException ex) {
-            log.error("Finding account failed. Order with id=" + id + " not found.");
+            log.error("Finding account failed. Account with id=" + id + " not found.");
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+        }
+    }
+
+    @PutMapping("/save")
+    public ResponseEntity<?> save(@RequestBody AccountDto accountDto) {
+        try {
+            log.info("Saving account.");
+            return ResponseEntity.ok(accountService.save(accountDto));
+        } catch (RuntimeException ex) {
+            log.error("Saving account failed.");
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }

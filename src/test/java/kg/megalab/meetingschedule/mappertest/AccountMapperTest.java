@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class AccountMapperTest {
 
     @Test
-    public void testAccountMapper(){
+    public void testAccountMapper() {
 
         AccountDto accountDto = new AccountDto();
         accountDto.setId(1L);

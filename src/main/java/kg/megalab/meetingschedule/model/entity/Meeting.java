@@ -39,20 +39,20 @@ public class Meeting extends AbstractPersistable<Long> {
 
     @JsonDeserialize(using = LocalTimeDeserializer.class)
     @JsonSerialize(using = LocalTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_start_time", nullable = false)
     LocalTime meetingStartTime;
 
     @JsonDeserialize(using = LocalTimeDeserializer.class)
     @JsonSerialize(using = LocalTimeSerializer.class)
-    @JsonFormat(shape = JsonFormat.Shape.ARRAY, pattern = "HH:mm") //TODO: Why ARRAY?
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm") //TODO: Why ARRAY?
     @Column(name = "meeting_end_time", nullable = false)
     LocalTime meetingEndTime;
 
 //    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
 //    @JsonSerialize(using = LocalDateTimeSerializer.class)
     @CreationTimestamp // TODO: Should I use @JsonFormat here?
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyy HH:mm:ss") //TODO: Shape.STRING? Locale, TimeZone???
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss") //TODO: Shape.STRING? Locale, TimeZone???
     @Column(name = "creation_date", nullable = false, updatable = false)
     LocalDateTime creationDate;
 

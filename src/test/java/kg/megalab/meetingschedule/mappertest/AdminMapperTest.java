@@ -31,7 +31,7 @@ public class AdminMapperTest {
                 .firstName("John")
                 .email("john@gmail.com")
                 .msisdn("0999999999")
-                .employeeStatus("A")
+                .employeeStatus("ACTIVE")
                 .account(AccountDto.builder()
                         .id(1L)
                         .login("John")

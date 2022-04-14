@@ -1,8 +1,7 @@
 package kg.megalab.meetingschedule.controller;
 
-import kg.megalab.meetingschedule.model.dto.AdminDto;
 import kg.megalab.meetingschedule.model.dto.BuildingDto;
-import kg.megalab.meetingschedule.service.AdminService;
+import kg.megalab.meetingschedule.service.BuildingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,35 +10,35 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/admin")
-public class AdminController {
+@RequestMapping("/api/v1/building")
+public class BuildingController {
 
-    private final AdminService adminService;
+    private final BuildingService buildingService;
 
     @Autowired
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
+    public BuildingController(BuildingService buildingService) {
+        this.buildingService = buildingService;
     }
 
     @GetMapping("/find/{id}")
     public ResponseEntity<?> find(@PathVariable Long id) {
         try {
-            log.info("Finding admin with id=" + id);
-            return ResponseEntity.ok(adminService.findById(id));
+            log.info("Finding building with id=" + id);
+            return ResponseEntity.ok(buildingService.findById(id));
         } catch (RuntimeException ex) {
-            log.error("Finding admin failed. Admin with id=" + id + " not found.");
+            log.error("Finding building failed. Building with id=" + id + " not found.");
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }
     }
 
     @PutMapping("/save")
-    public ResponseEntity<?> save(@RequestBody AdminDto adminDto) {
+    public ResponseEntity<?> save(@RequestBody BuildingDto buildingDto) {
         try {
-            log.info("Saving admin.");
-            return ResponseEntity.ok(adminService.save(adminDto));
+            log.info("Saving building.");
+            return ResponseEntity.ok(buildingService.save(buildingDto));
         } catch (RuntimeException ex) {
-            log.error("Saving admin failed.");
+            log.error("Saving building failed.");
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }

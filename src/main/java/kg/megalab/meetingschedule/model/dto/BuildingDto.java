@@ -8,12 +8,9 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class RoomDto {
+public class BuildingDto {
 
     Long id;
-    String roomNumber;
-    Integer roomCapacity;
-//    RoomDto parentBuilding;
-    BuildingDto building;
+    String building;
 
 }

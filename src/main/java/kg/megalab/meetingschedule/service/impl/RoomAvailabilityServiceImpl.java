@@ -4,15 +4,24 @@ import kg.megalab.meetingschedule.mapper.RoomAvailabilityMapper;
 import kg.megalab.meetingschedule.model.dto.RoomAvailabilityDto;
 import kg.megalab.meetingschedule.repository.RoomAvailabilityRepository;
 import kg.megalab.meetingschedule.service.RoomAvailabilityService;
+import kg.megalab.meetingschedule.service.RoomService;
+import kg.megalab.meetingschedule.service.WeekdayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalTime;
+import java.util.Map;
 
 @Service
 public class RoomAvailabilityServiceImpl implements RoomAvailabilityService {
 
     private final RoomAvailabilityRepository roomAvailabilityRepository;
+
+    @Autowired
+    private WeekdayService weekdayService;
+    @Autowired
+    private RoomService roomService;
 
     @Autowired
     public RoomAvailabilityServiceImpl(RoomAvailabilityRepository roomAvailabilityRepository) {
@@ -41,5 +50,17 @@ public class RoomAvailabilityServiceImpl implements RoomAvailabilityService {
         return RoomAvailabilityMapper.INSTANCE
                 .toDto(roomAvailabilityRepository.save(RoomAvailabilityMapper.INSTANCE
                         .toEntity(roomAvailabilityDto)));
+    }
+
+    @Override
+    public void create(Map<String, LocalTime> params) {
+        RoomAvailabilityDto roomAvailabilityDto=new RoomAvailabilityDto();
+
+        roomAvailabilityDto.setAvailableTo(params.get("to"));
+        roomAvailabilityDto.setAvailableFrom( params.get("from"));
+        roomAvailabilityDto.setWeekday(weekdayService.findById(1l));
+        roomAvailabilityDto.setRoom(roomService.findById(2l));
+
+        save(roomAvailabilityDto);
     }
 }

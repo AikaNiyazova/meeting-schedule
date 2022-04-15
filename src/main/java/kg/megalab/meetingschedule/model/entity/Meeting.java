@@ -1,6 +1,7 @@
 package kg.megalab.meetingschedule.model.entity;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_meeting")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Meeting {
 
     @Id

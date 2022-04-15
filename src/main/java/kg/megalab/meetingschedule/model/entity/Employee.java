@@ -2,6 +2,7 @@ package kg.megalab.meetingschedule.model.entity;
 
 import kg.megalab.meetingschedule.model.enums.EmployeeStatus;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_employee")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Employee {
 
     @Id

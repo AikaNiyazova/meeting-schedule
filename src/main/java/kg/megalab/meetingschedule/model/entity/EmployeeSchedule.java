@@ -2,6 +2,7 @@ package kg.megalab.meetingschedule.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -14,6 +15,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_employee_schedule")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class EmployeeSchedule {
 
     @Id

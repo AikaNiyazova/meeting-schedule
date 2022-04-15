@@ -8,9 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalTime;
-import java.util.Map;
-
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/room-availability")
@@ -39,8 +36,6 @@ public class RoomAvailabilityController {
     public ResponseEntity<?> save(@RequestBody RoomAvailabilityDto roomAvailabilityDto) {
         try {
             log.info("Saving roomAvailability.");
-            System.out.println(roomAvailabilityDto.getAvailableFrom()); //TODO
-            System.out.println(roomAvailabilityDto.getAvailableTo()); //TODO
             return ResponseEntity.ok(roomAvailabilityService.save(roomAvailabilityDto));
         } catch (RuntimeException ex) {
             log.error("Saving roomAvailability failed.");
@@ -49,8 +44,4 @@ public class RoomAvailabilityController {
         }
     }
 
-    @PostMapping("test")
-    void test(@RequestBody Map<String, LocalTime> params){
-        roomAvailabilityService.create(params);
-    }
 }

@@ -2,7 +2,6 @@ package kg.megalab.meetingschedule.controller;
 
 
 import kg.megalab.meetingschedule.model.dto.MeetingDto;
-import kg.megalab.meetingschedule.model.dto.RoomDto;
 import kg.megalab.meetingschedule.service.MeetingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package kg.megalab.meetingschedule.model.entity;
 
 import lombok.*;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
@@ -13,7 +12,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_weekday")
-public class Weekday extends AbstractPersistable<Long> {
+public class Weekday {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
+    Long id;
 
     @Column(name = "weekday", nullable = false, unique = true)
     String weekday;

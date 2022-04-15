@@ -2,7 +2,6 @@ package kg.megalab.meetingschedule.model.entity;
 
 import kg.megalab.meetingschedule.model.enums.EmployeeStatus;
 import lombok.*;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
@@ -14,7 +13,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_employee")
-public class Employee extends AbstractPersistable<Long> {
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
+    Long id;
 
     @Column(name = "last_name", nullable = false)
     String lastName;
@@ -31,7 +35,7 @@ public class Employee extends AbstractPersistable<Long> {
     @Column(name = "employee_status", nullable = false)
     EmployeeStatus employeeStatus;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false, unique = true)
     Account account;
 

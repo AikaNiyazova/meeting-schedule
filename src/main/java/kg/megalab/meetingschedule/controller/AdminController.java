@@ -1,7 +1,6 @@
 package kg.megalab.meetingschedule.controller;
 
 import kg.megalab.meetingschedule.model.dto.AdminDto;
-import kg.megalab.meetingschedule.model.dto.BuildingDto;
 import kg.megalab.meetingschedule.service.AdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

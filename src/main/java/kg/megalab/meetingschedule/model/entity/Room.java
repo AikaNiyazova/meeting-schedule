@@ -1,9 +1,6 @@
 package kg.megalab.meetingschedule.model.entity;
 
 import lombok.*;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
@@ -15,7 +12,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_room")
-public class Room extends AbstractPersistable<Long> {
+public class Room {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
+    Long id;
 
     @Column(name = "room_number", nullable = false)
     String roomNumber;
@@ -23,14 +25,9 @@ public class Room extends AbstractPersistable<Long> {
     @Column(name = "room_capacity")
     Integer roomCapacity;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "parent_building_id")
-//    @ToString.Exclude
-//    Room parentBuilding;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "building_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_building_id")
     @ToString.Exclude
-    Building building;
+    Room parentBuilding;
 
 }

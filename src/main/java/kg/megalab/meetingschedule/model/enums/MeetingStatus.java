@@ -2,6 +2,7 @@ package kg.megalab.meetingschedule.model.enums;
 
 public enum MeetingStatus {
 
+    FORTHCOMING("FORTHCOMING"),
     IN_PROGRESS("IN_PROGRESS"),
     COMPLETED("COMPLETED"),
     CANCELED("CANCELED"),

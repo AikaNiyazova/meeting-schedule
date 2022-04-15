@@ -24,8 +24,7 @@ public class RoomMapperTest {
         roomDto.setId(1L);
         roomDto.setRoomNumber("10");
         roomDto.setRoomCapacity(40);
-//        roomDto.setParentBuilding(null);
-        roomDto.setBuilding(null);
+        roomDto.setParentBuilding(null);
 
         Room room = RoomMapper.INSTANCE.toEntity(roomDto);
         RoomDto result = RoomMapper.INSTANCE.toDto(room);
@@ -33,8 +32,7 @@ public class RoomMapperTest {
         assertEquals(room.getId(), result.getId());
         assertEquals(room.getRoomNumber(), result.getRoomNumber());
         assertEquals(room.getRoomCapacity(), result.getRoomCapacity());
-//        assertEquals(room.getParentBuilding(), result.getParentBuilding());
-        assertEquals(room.getBuilding(), result.getBuilding());
+        assertEquals(room.getParentBuilding(), result.getParentBuilding());
 
     }
 

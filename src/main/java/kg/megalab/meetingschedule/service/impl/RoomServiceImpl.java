@@ -28,7 +28,7 @@ public class RoomServiceImpl implements RoomService {
     public RoomDto findById(Long id) {
         return RoomMapper.INSTANCE
                 .toDto(roomRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Room with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("Room with id=" + id + " not found")));
     }
 
     @Override

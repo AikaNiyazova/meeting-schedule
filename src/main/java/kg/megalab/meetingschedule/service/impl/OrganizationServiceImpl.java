@@ -28,7 +28,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     public OrganizationDto findById(Long id) {
         return OrganizationMapper.INSTANCE
                 .toDto(organizationRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Organization with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("Organization with id=" + id + " not found")));
     }
 
     @Override

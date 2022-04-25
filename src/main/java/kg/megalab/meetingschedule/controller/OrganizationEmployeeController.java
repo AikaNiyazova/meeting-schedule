@@ -1,5 +1,6 @@
 package kg.megalab.meetingschedule.controller;
 
+import kg.megalab.meetingschedule.model.dto.EmployeeDto;
 import kg.megalab.meetingschedule.model.dto.OrganizationEmployeeDto;
 import kg.megalab.meetingschedule.service.OrganizationEmployeeService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,18 @@ public class OrganizationEmployeeController {
             return ResponseEntity.ok(organizationEmployeeService.findById(id));
         } catch (RuntimeException ex) {
             log.error("Finding organizationEmployee failed. OrganizationEmployee with id=" + id + " not found.");
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+        }
+    }
+
+    @GetMapping("/find-by-employee-id/{employeeId}")
+    public ResponseEntity<?> findByEmployeeId(@PathVariable Long employeeId) {
+        try {
+            log.info("Finding organizationEmployee with employeeId=" + employeeId);
+            return ResponseEntity.ok(organizationEmployeeService.findByEmployeeId(employeeId));
+        } catch (RuntimeException ex) {
+            log.error("Finding organizationEmployee failed. OrganizationEmployee with employeeId=" + employeeId + " not found.");
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }

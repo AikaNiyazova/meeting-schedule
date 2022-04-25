@@ -10,6 +10,8 @@ public interface EmployeeScheduleService {
 
     EmployeeScheduleDto findById(Long id);
 
+    EmployeeScheduleDto findByOrganizationEmployeeId(Long organizationEmployeeId);
+
     EmployeeScheduleDto update(EmployeeScheduleDto employeeScheduleDto);
 
     EmployeeScheduleDto save(EmployeeScheduleDto employeeScheduleDto);

@@ -39,6 +39,7 @@ public class MeetingMapperTest {
                 .roomCapacity(40)
 //                .parentBuilding(null)
                 .build());
+        meetingDto.setMeetingStatus("IN_PROGRESS");
 
         Meeting meeting = MeetingMapper.INSTANCE.toEntity(meetingDto);
         MeetingDto result = MeetingMapper.INSTANCE.toDto(meeting);
@@ -51,6 +52,7 @@ public class MeetingMapperTest {
         assertEquals(meeting.getMeetingEndTime(), result.getMeetingEndTime());
         assertEquals(meeting.getCreationDate(), result.getCreationDate());
         assertEquals(meeting.getRoom(), result.getRoom());
+        assertEquals(meeting.getMeetingStatus(), result.getMeetingStatus());
 
     }
 

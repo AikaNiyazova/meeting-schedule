@@ -34,8 +34,4 @@ public class MeetingEmployee {
     @Column(name = "member_type", nullable = false)
     MemberType memberType;
 
-    @Column(name = "meeting_status", nullable = false)
-    MeetingStatus meetingStatus;
-
-
 }

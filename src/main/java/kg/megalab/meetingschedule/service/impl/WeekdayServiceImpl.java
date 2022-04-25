@@ -28,7 +28,7 @@ public class WeekdayServiceImpl implements WeekdayService {
     public WeekdayDto findById(Long id) {
         return WeekdayMapper.INSTANCE
                 .toDto(weekdayRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Weekday with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("Weekday with id=" + id + " not found")));
     }
 
     @Override

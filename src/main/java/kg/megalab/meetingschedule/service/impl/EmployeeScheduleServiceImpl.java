@@ -27,7 +27,14 @@ public class EmployeeScheduleServiceImpl implements EmployeeScheduleService {
     @Override
     public EmployeeScheduleDto findById(Long id) {
         return EmployeeScheduleMapper.INSTANCE.toDto(employeeScheduleRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("EmployeeSchedule with id=" + id + "not found")));
+                .orElseThrow(() -> new EntityNotFoundException("EmployeeSchedule with id=" + id + " not found")));
+    }
+
+    @Override
+    public EmployeeScheduleDto findByOrganizationEmployeeId(Long organizationEmployeeId) {
+        return EmployeeScheduleMapper.INSTANCE
+                .toDto(employeeScheduleRepository.findByOrganizationEmployeeId(organizationEmployeeId)
+                        .orElseThrow(() -> new EntityNotFoundException("EmployeeSchedule with organizationEmployeeId=" + organizationEmployeeId + " not found")));
     }
 
     @Override

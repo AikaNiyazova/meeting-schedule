@@ -20,13 +20,25 @@ public class EmployeeScheduleController {
         this.employeeScheduleService = employeeScheduleService;
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/find-by-organization-employee/{id}")
     public ResponseEntity<?> find(@PathVariable Long id) {
         try {
             log.info("Finding employeeSchedule with id=" + id);
             return ResponseEntity.ok(employeeScheduleService.findById(id));
         } catch (RuntimeException ex) {
             log.error("Finding employeeSchedule failed. EmployeeSchedule with id=" + id + " not found.");
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
+        }
+    }
+
+    @GetMapping("/find/{organizationEmployeeId}")
+    public ResponseEntity<?> findByOrganizationEmployeeId(@PathVariable Long organizationEmployeeId) {
+        try {
+            log.info("Finding employeeSchedule with organizationEmployeeId=" + organizationEmployeeId);
+            return ResponseEntity.ok(employeeScheduleService.findByOrganizationEmployeeId(organizationEmployeeId));
+        } catch (RuntimeException ex) {
+            log.error("Finding employeeSchedule failed. EmployeeSchedule with organizationEmployeeId=" + organizationEmployeeId + " not found.");
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
         }

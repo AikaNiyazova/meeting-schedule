@@ -2,6 +2,7 @@ package kg.megalab.meetingschedule.service.impl;
 
 import kg.megalab.meetingschedule.mapper.OrganizationEmployeeMapper;
 import kg.megalab.meetingschedule.model.dto.OrganizationEmployeeDto;
+import kg.megalab.meetingschedule.model.entity.Employee;
 import kg.megalab.meetingschedule.repository.OrganizationEmployeeRepository;
 import kg.megalab.meetingschedule.service.OrganizationEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,14 @@ public class OrganizationEmployeeServiceImpl implements OrganizationEmployeeServ
     public OrganizationEmployeeDto findById(Long id) {
         return OrganizationEmployeeMapper.INSTANCE
                 .toDto(organizationEmployeeRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("OrganizationEmployee with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("OrganizationEmployee with id=" + id + " not found")));
+    }
+
+    @Override
+    public OrganizationEmployeeDto findByEmployeeId(Long employeeId) {
+        return OrganizationEmployeeMapper.INSTANCE
+                .toDto(organizationEmployeeRepository.findByEmployeeId(employeeId)
+                        .orElseThrow(() -> new EntityNotFoundException("OrganizationEmployee with employeeId=" + employeeId + " not found")));
     }
 
     @Override

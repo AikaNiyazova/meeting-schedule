@@ -14,6 +14,5 @@ public class MeetingEmployeeDto {
     MeetingDto meeting;
     EmployeeDto employee;
     String memberType;
-    String meetingStatus;
 
 }

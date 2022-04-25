@@ -28,7 +28,7 @@ public class AccountServiceImpl implements AccountService {
     public AccountDto findById(Long id) {
         return AccountMapper.INSTANCE
                 .toDto(accountRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Account with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("Account with id=" + id + " not found")));
     }
 
     @Override

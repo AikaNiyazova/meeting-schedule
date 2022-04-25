@@ -28,7 +28,7 @@ public class MeetingEmployeeServiceImpl implements MeetingEmployeeService {
     public MeetingEmployeeDto findById(Long id) {
         return MeetingEmployeeMapper.INSTANCE
                 .toDto(meetingEmployeeRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("MeetingEmployee with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("MeetingEmployee with id=" + id + " not found")));
     }
 
     @Override

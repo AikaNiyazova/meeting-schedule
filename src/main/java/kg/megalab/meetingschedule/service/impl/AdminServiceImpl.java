@@ -28,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
     public AdminDto findById(Long id) {
         return AdminMapper.INSTANCE
                 .toDto(adminRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("Admin with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("Admin with id=" + id + " not found")));
     }
 
     @Override

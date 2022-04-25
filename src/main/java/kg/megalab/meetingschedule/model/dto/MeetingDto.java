@@ -1,8 +1,10 @@
 package kg.megalab.meetingschedule.model.dto;
 
+import kg.megalab.meetingschedule.model.enums.MeetingStatus;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,5 +24,6 @@ public class MeetingDto {
     LocalTime meetingEndTime;
     LocalDateTime creationDate;
     RoomDto room;
+    String meetingStatus;
 
 }

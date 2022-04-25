@@ -17,6 +17,4 @@ public interface RoomAvailabilityService {
 
     RoomAvailabilityDto save(RoomAvailabilityDto roomAvailabilityDto);
 
-    void create(Map<String, LocalTime> params);
-
 }

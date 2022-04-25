@@ -3,7 +3,7 @@ package kg.megalab.meetingschedule.model.enums;
 public enum MemberType {
 
     ORGANIZER("ORGANIZER"),
-    INVITED_PARTICIPANT("INVITED_PARTICIPANT"),
+    INVITEE("INVITEE"),
     DELEGATE("DELEGATE");
 
     private final String value;

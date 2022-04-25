@@ -19,11 +19,6 @@ public class RoomAvailabilityServiceImpl implements RoomAvailabilityService {
     private final RoomAvailabilityRepository roomAvailabilityRepository;
 
     @Autowired
-    private WeekdayService weekdayService;
-    @Autowired
-    private RoomService roomService;
-
-    @Autowired
     public RoomAvailabilityServiceImpl(RoomAvailabilityRepository roomAvailabilityRepository) {
         this.roomAvailabilityRepository = roomAvailabilityRepository;
     }
@@ -37,7 +32,7 @@ public class RoomAvailabilityServiceImpl implements RoomAvailabilityService {
     public RoomAvailabilityDto findById(Long id) {
         return RoomAvailabilityMapper.INSTANCE
                 .toDto(roomAvailabilityRepository.findById(id)
-                        .orElseThrow(() -> new EntityNotFoundException("RoomAvailability with id=" + id + "not found")));
+                        .orElseThrow(() -> new EntityNotFoundException("RoomAvailability with id=" + id + " not found")));
     }
 
     @Override
@@ -50,17 +45,5 @@ public class RoomAvailabilityServiceImpl implements RoomAvailabilityService {
         return RoomAvailabilityMapper.INSTANCE
                 .toDto(roomAvailabilityRepository.save(RoomAvailabilityMapper.INSTANCE
                         .toEntity(roomAvailabilityDto)));
-    }
-
-    @Override
-    public void create(Map<String, LocalTime> params) {
-        RoomAvailabilityDto roomAvailabilityDto=new RoomAvailabilityDto();
-
-        roomAvailabilityDto.setAvailableTo(params.get("to"));
-        roomAvailabilityDto.setAvailableFrom( params.get("from"));
-        roomAvailabilityDto.setWeekday(weekdayService.findById(1l));
-        roomAvailabilityDto.setRoom(roomService.findById(2l));
-
-        save(roomAvailabilityDto);
     }
 }

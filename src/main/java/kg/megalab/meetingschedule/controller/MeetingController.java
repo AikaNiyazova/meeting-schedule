@@ -2,6 +2,7 @@ package kg.megalab.meetingschedule.controller;
 
 
 import kg.megalab.meetingschedule.model.dto.MeetingDto;
+import kg.megalab.meetingschedule.model.request.CreateMeetingRequest;
 import kg.megalab.meetingschedule.service.MeetingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,18 @@ public class MeetingController {
     @Autowired
     public MeetingController(MeetingService meetingService) {
         this.meetingService = meetingService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody CreateMeetingRequest request) {
+        try {
+            log.info("Creating meeting");
+            return ResponseEntity.status(HttpStatus.CREATED).body(meetingService.create(request));
+        } catch (RuntimeException ex) {
+            log.error("Meeting creation failed");
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+        } // TODO: HttpStatus.CONFLICT
     }
 
     @GetMapping("/find/{id}")

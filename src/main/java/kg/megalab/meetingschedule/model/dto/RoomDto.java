@@ -14,6 +14,5 @@ public class RoomDto {
     String roomNumber;
     Integer roomCapacity;
     RoomDto parentBuilding;
-//    BuildingDto building;
 
 }

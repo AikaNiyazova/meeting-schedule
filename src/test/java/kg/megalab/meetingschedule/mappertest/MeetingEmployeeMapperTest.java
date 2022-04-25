@@ -28,8 +28,7 @@ public class MeetingEmployeeMapperTest {
         meetingEmployeeDto.setId(1L);
         meetingEmployeeDto.setMeeting(meetingDto);
         meetingEmployeeDto.setEmployee(employeeDto);
-        meetingEmployeeDto.setMemberType("IP");
-        meetingEmployeeDto.setMeetingStatus("PRO");
+        meetingEmployeeDto.setMemberType("INVITEE");
 
         MeetingEmployee meetingEmployee = MeetingEmployeeMapper.INSTANCE.toEntity(meetingEmployeeDto);
         MeetingEmployeeDto result = MeetingEmployeeMapper.INSTANCE.toDto(meetingEmployee);
@@ -38,7 +37,6 @@ public class MeetingEmployeeMapperTest {
         assertEquals(meetingEmployee.getMeeting(), result.getMeeting());
         assertEquals(meetingEmployee.getEmployee(), result.getEmployee());
         assertEquals(meetingEmployee.getMemberType(), result.getMemberType());
-        assertEquals(meetingEmployee.getMeetingStatus(), result.getMeetingStatus());
 
     }
 

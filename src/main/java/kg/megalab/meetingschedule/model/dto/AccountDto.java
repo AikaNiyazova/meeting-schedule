@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 public class AccountDto {
 
     Long id;
-    String login;
+    String username;
     String password;
     Integer loginCount;
 //    EmployeeDto employee;

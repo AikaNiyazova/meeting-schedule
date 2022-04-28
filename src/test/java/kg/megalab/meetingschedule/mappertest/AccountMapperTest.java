@@ -21,7 +21,7 @@ public class AccountMapperTest {
 
         AccountDto accountDto = new AccountDto();
         accountDto.setId(1L);
-        accountDto.setLogin("John");
+        accountDto.setUsername("John");
         accountDto.setPassword("123");
         accountDto.setLoginCount(1);
 
@@ -29,7 +29,7 @@ public class AccountMapperTest {
         AccountDto result = AccountMapper.INSTANCE.toDto(account);
 
         assertEquals(account.getId(), result.getId());
-        assertEquals(account.getLogin(), result.getLogin());
+        assertEquals(account.getUsername(), result.getUsername());
         assertEquals(account.getPassword(), result.getPassword());
         assertEquals(account.getLoginCount(), result.getLoginCount());
 

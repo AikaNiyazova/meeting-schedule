@@ -21,8 +21,8 @@ public class Account {
     @Column(name = "id")
     Long id;
 
-    @Column(name = "login", nullable = false, unique = true)
-    String login;
+    @Column(name = "username", nullable = false, unique = true)
+    String username;
 
     @Column(name = "password", nullable = false)
     String password;

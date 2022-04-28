@@ -2,6 +2,8 @@ package kg.megalab.meetingschedule.service.impl;
 
 import kg.megalab.meetingschedule.mapper.AccountMapper;
 import kg.megalab.meetingschedule.model.dto.AccountDto;
+import kg.megalab.meetingschedule.model.entity.Account;
+import kg.megalab.meetingschedule.model.request.CreateAccountRequest;
 import kg.megalab.meetingschedule.repository.AccountRepository;
 import kg.megalab.meetingschedule.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,20 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountDto create(AccountDto accountDto) {
-        return null;
+    public AccountDto create(CreateAccountRequest request) {
+        if (accountRepository.existsByUsername(request.getUsername())) {
+            throw new RuntimeException("Username: " + request.getUsername() + " already in use");
+        }
+
+        Account account = Account
+                .builder()
+                .username(request.getUsername())
+                .password(request.getPassword())
+                .loginCount(request.getLoginCount())
+                .build();
+        accountRepository.save(account);
+
+        return AccountMapper.INSTANCE.toDto(account);
     }
 
     @Override

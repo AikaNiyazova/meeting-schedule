@@ -34,7 +34,7 @@ public class AdminMapperTest {
                 .employeeStatus("ACTIVE")
                 .account(AccountDto.builder()
                         .id(1L)
-                        .login("John")
+                        .username("John")
                         .password("123")
                         .loginCount(1)
                         .build())

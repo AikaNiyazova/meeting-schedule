@@ -35,6 +35,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     Boolean findEmployeeStatus_DismissedById(Long id);
 
+    Boolean existsByEmail(String email);
+
 //    Boolean existsByIdAndEmployeeStatus_ACTIVE(Long id, EmployeeStatus employeeStatus);
 //
 //    Boolean existsByEmployeeStatus_DISMISSED(EmployeeStatus employeeStatus);
